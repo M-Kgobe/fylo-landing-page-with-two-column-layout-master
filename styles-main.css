@@ -1,0 +1,420 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+}
+h2, h3, h4{
+    font-family: 'Raleway', sans-serif;
+}
+:required{
+    transition: 1s linear;
+}
+:required:hover, :required:focus{
+    transition: 1s linear;
+    box-shadow: 0 0 10px hsl(170, 45%, 43%);
+    border: 1px solid green;
+}
+input::after{
+    content: "Email";
+    font-size: 0;
+    color: hsl(243, 87%, 12%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+input:focus::after{
+    font-size: 14px;
+    position: absolute;
+    top: -1em;
+    left: 2em;
+    background-color: red;
+}
+/* Navigation Bar */
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    position:fixed;
+    width: 100%;
+    z-index: 10;
+    padding: 1em 3em;
+    font-family: 'Raleway', sans-serif;
+    transition: 0s ease-in 0s;
+}
+    nav:hover{
+        transition: 0s ease-out;
+        box-shadow: 2px 2px 10px hsl(170, 45%, 43%);
+    }
+    .nav-links{
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 1em;
+    }
+    .nav-links li, .nav-links a{
+        width: fit-content;
+        text-decoration: none;
+        color: hsl(243, 87%, 12%);
+        transition: 1s ease;
+        position: relative;
+    }
+    .nav-links a:hover {
+        font-size: larger;
+        letter-spacing: 0.2rem;
+        width: fit-content;
+        text-decoration: none;
+        transition: 1s ease-in-out;
+        color: hsl(0, 0%, 75%);
+    }
+    .nav-links li::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transition: 2s transform ease-in-out;
+        background-color: hsl(0, 0%, 75%);
+        right: 0;
+        bottom: 0;
+    }
+    .nav-links li:hover::after{
+        transform: scaleX(1);
+        transition: 1s transform ease;
+    }
+/* End of the Navigation Bar */
+
+/* Container */
+.container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 5em;
+    width: 100%;
+}
+    /* Features section */
+    #features{
+        display: flex;
+        width: 100%;
+        max-height:800px;
+        color:  hsl(243, 87%, 12%);
+        padding: 3em;
+        padding-top: 8em;
+        padding-bottom: 15em;
+        background-image: url("images/bg-curve-desktop.svg");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100%;
+    }
+        .info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 45%;
+            gap: 2em;
+        }
+            .info h2{
+                max-width: 90%;
+            }
+            .info p{
+                max-width: 90%;
+            }
+            .features-input{
+                display: flex;
+                width: 100%;
+                gap: 2em;
+                font-family: 'Raleway', sans-serif;
+            }
+                .features-input input{
+                    border: 1px solid hsl(243, 87%, 12%);
+                    border-radius: 3px;
+                    padding: 0.8em 1.5em;
+                    width: 50%;
+                    outline: none;
+                }
+                .features-input button{
+                    position: relative;
+                    cursor: pointer;
+                    border: none;
+                    border-radius: 3px;
+                    color: white;
+                    padding: 0.8em 1em;
+                    width: 30%;
+                    font-weight: 700;
+                    background-color: hsl(224, 93%, 58%);
+                    transition: 1s linear;
+                }
+                .features-input button:hover{
+                    transition: 1s linear;
+                    background-color:hsl(224, 74%, 59%) ;
+                    box-shadow: 0 0 10px hsl(170, 45%, 43%);
+                }
+                .features-input button:active{
+                    transition: 0.5s all;
+                    width: 20%;
+                    border-radius: 2em;
+                }
+                .features-input button:not(:active){
+                    transition-delay: 1s;
+                }
+        .illustration1{
+            width: 55%;
+        }
+            .illustration1 img{
+                width: 100%;
+                height: 100%;
+            }
+    /* End of Features Section */
+
+    /* Teams Section */
+    #team{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        padding: 3em;
+        padding-top: 8em;
+        padding-bottom: 8em;
+        gap: 1em;
+        color: hsl(243, 87%, 12%);
+        background-color: hsl(240, 60%, 98%);
+    }
+        .productive{
+            display: flex;
+            flex-direction: column;
+            max-width: 90%;
+            gap: 1em;
+        }
+            .productive h2{
+                padding-bottom: 0.7em;
+            }
+            .productive p{
+                font-size: 14px;
+                max-width: 70%;
+            }
+            .works{
+                display: inline-flex;
+                width: fit-content;
+                position: relative;
+            }
+            .works a{
+                color: hsl(170, 45%, 43%);
+                font-weight: 700;
+                text-decoration: none;
+                transition: 1s all;
+            }
+            .works a img{
+                position: relative;
+                top: 2px;
+            }
+            .works a:hover{
+                color: hsl(170, 67%, 52%);
+                transition: 1s all;
+            }
+            .works a::after{
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                transform: scaleX(0);
+                transition: 1s transform linear;
+                width: 100%;
+                height: 2px;
+                background-color: hsl(170, 67%, 52%);
+            }
+            .works a:hover::after{
+                transform: scaleX(1);
+                transform-origin: center ;
+                transition: 1s transform linear;
+            }
+        .review{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            max-width: 60%;
+            height: fit-content;
+            background-color: white;
+            border-radius: 0.3em;
+            box-shadow: 2px 2px 10px -2px;
+            background-image: url("images/icon-quotes.svg");
+            background-repeat: no-repeat;
+            background-position: 2em 2em;
+            background-size: 20px 20px;
+            padding:  4em 2em 2em 2em;
+        }
+            .review p{
+                font-size: 14px;
+            }
+            .profile{
+                display: flex;
+                gap: 1em;
+            }
+                .profile img{
+                    width: 40px;
+                    border-radius: 50%;
+                }
+                .user-info{
+                    font-size: smaller;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 0.5em;
+                }
+                span{
+                    font-size:x-small;
+                }
+        .illustration2{
+            grid-column: 2/3;
+            grid-row: 1/3;
+        }
+        .illustration2 img{
+            width: 100%;
+        }
+    /* End of the Teams Section */
+
+    /* Form Section */
+    #sign-in{
+        display: flex;
+        padding: 2em;
+        padding-left: 3em;
+        background-color: hsl(238, 22%, 44%);
+    }
+        .access{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 50%;
+            color: white;
+            font-size: large;
+        }
+        .access p{
+            font-size: 14px;
+            font-weight: 400;
+            color: hsl(240, 75%, 98%);
+            max-width: 60%;
+        }
+        .get-started{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1em;
+            width: 50%;
+        }
+            .get-started input{
+                width: 60%;
+                padding: 0.8em 2em;
+                border-radius: 3px;
+                outline: none;
+                border: 1px solid hsl(243, 87%, 12%);
+            }
+            .get-started button{
+                cursor: pointer;
+                color: white;
+                padding: 0.8em 2em;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 700;
+                border: none;
+                border-radius: 3px;
+                background-color: hsl(224, 93%, 58%);
+                transition: 1s linear;
+            }
+                .get-started button:hover{
+                    background-color: hsl(224, 93%, 62%);
+                    box-shadow: 0 0 10px hsl(224, 93%, 58%);
+                    transition: 1s linear;
+                }
+    /* End of the Form Section */
+
+    /* Contact details Section */
+    #contact-us{
+        display: flex;
+        flex-direction: column;
+        padding: 3em;
+        background-color: hsl(243, 87%, 12%);
+    }
+        .logo-end{
+            padding: 2em 0;
+        }
+        .logo-end img{
+            fill: wheat;
+        }
+        .contact{
+            display: flex;
+            color: hsl(240, 75%, 98%);
+        }
+            table{
+                width: 40%;
+                height: fit-content;
+            }
+            .about{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8em;
+                width: 40%;
+            }
+                .about li{
+                    width: fit-content;
+                    list-style: none;
+                    transition: 1s linear;
+                }
+                .about li:hover{
+                    transition: 1s linear;
+                    color: hsl(224, 71%, 39%);
+                    cursor: pointer;
+                }
+            .socials{
+                display: flex;
+                margin: 0;
+                padding: 0;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 20%;
+                transition: 1s ease-in-out;
+            }
+            .socials li{
+                display: flex;
+                align-items: center;justify-content: center;
+                list-style: none;
+                margin: 0; 
+                transition: 1s all;               
+            }
+            .socials li a{
+                border: 2px solid white;
+                border-radius: 50%;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                font-size: 20px;
+                color: #fff;
+                text-decoration: none;
+                transition: 1s;
+            }
+            .socials li a:hover{
+                border: 2px solid hsl(224, 71%, 39%);
+                color: hsl(224, 71%, 39%);
+            }
+    /* End of the Contact details Section */
+
+    /* Footer Section */
+    footer{
+        padding: 1em;
+        background-color: hsl(243, 87%, 12%);
+        color: hsl(240, 75%, 98%);
+    }
+        .attribution {font-size: 11px;
+            text-align: center;
+        }
+        .attribution a{
+            color: hsl(170, 45%, 43%);
+        }
+    /* End of the Footer */
+/* End of the Container Section */
